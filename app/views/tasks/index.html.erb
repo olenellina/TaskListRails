@@ -1,7 +1,5 @@
 <h1>Task List</h1>
 
 <% @tasks.each do |task| %>
-  <h2>#<%= task.id %>: <%= task.title %></h2>
-  <p>Description: <%= task.description %></p>
-  <p>Completed: <%= task.completed %></p>
+  <h2><%=link_to( task[:title], show_path(task[:id])) %></h2>
 <% end %>
