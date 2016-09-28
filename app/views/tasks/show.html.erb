@@ -1,5 +1,7 @@
-<h1>Task <%= @mytask.id %></h1>
-
-<h3>Title: <%= @mytask.title %></h3>
-<p>Description: <%= @mytask.description %></p>
-<p>Completed: <%= @mytask.completed %></p>
+<h3>Task <%= @mytask.id %>: <%= @mytask.title %></h3>
+<p>Need to: <%= @mytask.description %></p>
+  <% if !@mytask.completed %>
+    <p>Status: <%= "Open" %></p>
+    <% else %>
+  <p>Status: <%= "Complete!" %></p>
+  <% end %>
