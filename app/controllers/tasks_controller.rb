@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @mytask = Task.new
     @mytask.title = params[:task][:title]
     @mytask.description = params[:task][:description]
-    @mytask.completed = params[:task][:competed]
+    @mytask.completed = false
     @mytask.save
   end
 
