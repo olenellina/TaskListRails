@@ -1,5 +1,5 @@
-<h1>My To-Dos</h1>
+<h2>My To-Dos</h2>
 
 <% @tasks.each do |task| %>
-  <h2><%=link_to( task[:title], show_path(task[:id])) %></h2>
+  <h3><%=link_to( task[:title], show_path(task[:id])) %></h3>
 <% end %>

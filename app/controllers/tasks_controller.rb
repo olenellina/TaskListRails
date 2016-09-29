@@ -11,6 +11,7 @@ class TasksController < ApplicationController
       number = params[:id].to_i
       if task[:id] == number
         @mytask = task
+        @var = @mytask.id
       end
     end
 
@@ -34,4 +35,5 @@ class TasksController < ApplicationController
 
   def destroy
   end
+
 end
