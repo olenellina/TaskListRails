@@ -29,6 +29,11 @@ class TasksController < ApplicationController
     @mytask.title = params[:title]
     @mytask.description = params[:description]
     @mytask.completed = params[:completed]
+
+    if @mytask.completed == true
+      @mytask.completed_at = DateTime.now
+    end
+
     @mytask.save
   end
 

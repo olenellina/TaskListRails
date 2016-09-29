@@ -1,9 +1,10 @@
 <h3>Task <%= @mytask.id %>: <%= @mytask.title %></h3>
 <p>Need to: <%= @mytask.description %></p>
   <% if !@mytask.completed %>
-    <p>Status: <%= "Open" %></p>
+    <p>Status: "Open"</p>
     <% else %>
-  <p>Status: <%= "Complete!" %></p>
+  <p>Status: "Complete!" </p>
+  <p>Completed at: <%= @mytask.completed_at %></p>
   <% end %>
 
   <p> <%=link_to( "Edit Task", edit_path(@mytask.id)) %></p>
