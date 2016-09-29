@@ -1,1 +1,14 @@
-<h1>Create a Task Item</h1>
+<h1>Create a Task</h1>
+
+<%= form_for @mytask, url: create_path do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :completed %>
+  <%= f.text_field :completed %>
+
+  <%= f.submit %>
+<% end %>

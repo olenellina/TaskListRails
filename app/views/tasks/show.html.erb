@@ -6,10 +6,7 @@
   <p>Status: <%= "Complete!" %></p>
   <% end %>
 
-  <% if @mytask.id > 1  %>
-    <h3><%=link_to( "Previous Task", show_path(@tasks[@mytask.id - 2])) %></h3>
-  <% end %>
+  <p> <%=link_to( "Edit Task", edit_path(@mytask.id)) %></p>
 
-  <% if @mytask.id < @tasks.last.id  %>
-    <h3><%=link_to( "Next Task", show_path(@tasks[@mytask.id])) %></h3>
-  <% end %>
+
+  <p><%= button_to "Delete Task", {action: "destroy", id: @mytask.id }, method: :delete, data: {confirm:"Are you Sure?" } %></p>

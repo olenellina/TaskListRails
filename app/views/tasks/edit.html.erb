@@ -1,2 +1,14 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<h1>Edit a Task</h1>
+
+<%= form_for @mytask, url: update_path, method: 'put' do |f| %>
+  <label>Title:</label><br>
+  <%= text_field_tag :title, @mytask.title %><br>
+
+  <label>Description</label><br>
+  <%= text_area_tag :description, @mytask.description %><br>
+
+  <label>Completed</label><br>
+  <%= text_area_tag :completed, @mytask.completed %><br>
+
+  <%= submit_tag "Submit Task Updates" %>
+<% end %>

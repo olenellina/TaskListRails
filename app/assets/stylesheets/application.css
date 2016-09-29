@@ -19,6 +19,7 @@ nav {
 li {
   list-style-type: none;
   display: inline-block;
+  padding-right: 1%;
 }
 
 li a {
