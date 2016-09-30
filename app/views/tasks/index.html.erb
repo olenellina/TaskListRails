@@ -1,20 +1,21 @@
 <h3>Open Tasks</h3>
 <% @tasks.each do |task| %>
   <% if !task.completed %>
-    <h3><%=link_to( task.title, show_path(task.id)) %></h3>
-    <%= form_for task, url: update_path(task.id), method: 'put'  do |f| %>
-        <%= hidden_field(:task, :title, :value => task.title) %>
-        <%= hidden_field(:task, :description, :value => task.description) %>
-      
-        <label>Complete</label>
-        <%= f.radio_button :completed, true %>
+      <h3><%=link_to( task.title, show_path(task.id)) %></h3>
+      <%= form_for task, url: update_path(task.id), method: 'put'  do |f| %>
+          <%= hidden_field(:task, :title, :value => task.title) %>
+          <%= hidden_field(:task, :description, :value => task.description) %>
 
-        <label>Open</label>
-        <%= f.radio_button :completed, false %>
+          <label>Open</label>
+          <%= f.radio_button :completed, false %>
 
-        <%= f.submit "Save" %>
+          <label>Complete</label>
+          <%= f.radio_button :completed, true %>
+
+          <%= f.submit "Save" %>
+      <% end %>
     <% end %>
-  <% end %>
+
 <% end %>
 
 <br>
