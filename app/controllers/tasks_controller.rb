@@ -26,9 +26,9 @@ class TasksController < ApplicationController
 
   def update
     @mytask = Task.find(params[:id])
-    @mytask.title = params[:title]
-    @mytask.description = params[:description]
-    @mytask.completed = params[:completed]
+    @mytask.title = params[:task][:title]
+    @mytask.description = params[:task][:description]
+    @mytask.completed = params[:task][:completed]
 
     if @mytask.completed == true
       @mytask.completed_at = DateTime.now

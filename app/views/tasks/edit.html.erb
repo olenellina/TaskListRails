@@ -1,16 +1,14 @@
 <h1>Edit a Task</h1>
 
 <%= form_for @mytask, url: update_path, method: 'put' do |f| %>
-  <label>Title:</label><br>
-  <%= text_field_tag :title, @mytask.title %><br>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-  <label>Description</label><br>
-  <%= text_area_tag :description, @mytask.description %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
 
-  <%= check_box_tag(:completed, checked = true) %>
-  <%= label_tag(:completed, "Done!") %>
+  <%= f.label :completed %>
+  <%= f.check_box :completed %>
 
-  <br>
-
-  <%= submit_tag "Submit Task Updates" %>
+  <%= f.submit %>
 <% end %>

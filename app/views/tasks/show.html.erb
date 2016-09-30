@@ -2,11 +2,10 @@
 <p>Need to: <%= @mytask.description %></p>
   <% if !@mytask.completed %>
     <p>Status: "Open"</p>
-    <p> <%=link_to( "Edit Task", edit_path(@mytask.id)) %></p>
+    <%= button_to "Edit Task", edit_path(@mytask.id), method: :get %>
     <% else %>
   <p>Status: "Complete!" </p>
   <p>Completed at: <%= @mytask.completed_at %></p>
   <% end %>
 
-
-  <p><%= button_to "Delete Task", {action: "destroy", id: @mytask.id }, method: :delete, data: {confirm:"Are you Sure?" } %></p>
+  <p><%= button_to "Delete Task", delete_path(@mytask.id), method: :delete, data: {confirm:"Are you Sure?" } %></p>
