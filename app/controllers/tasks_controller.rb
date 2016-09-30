@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     @mytask.completed = false
     @mytask.save
 
-    # For better user experience, users are redirected home after a task is updated
+    # For better user experience, users are redirected home after action
     redirect_to action: 'index'
   end
 
@@ -39,14 +39,21 @@ class TasksController < ApplicationController
 
     @mytask.save
 
-    # For better user experience, users are redirected home after a task is updated
     redirect_to action: 'index'
   end
 
   def destroy
     Task.find(params[:id]).destroy
 
-    # For better user experience, users are redirected home after a task is updated
+    redirect_to action: 'index'
+  end
+
+  def complete
+    @mytask = Task.find(params[:id])
+    @mytask.completed = true
+    @mytask.completed_at = DateTime.now
+    @mytask.save
+
     redirect_to action: 'index'
   end
 

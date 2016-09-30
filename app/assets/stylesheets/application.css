@@ -37,3 +37,15 @@ ul {
 a:hover {
   color: gray;
 }
+
+.buttons {
+  display: inline-block;
+}
+
+h3 {
+  margin: 0%;
+}
+
+section {
+  margin: 1% 0% 2% 0%;
+}

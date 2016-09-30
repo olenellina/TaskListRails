@@ -2,23 +2,12 @@
 <% @tasks.each do |task| %>
   <!-- Dividing view to show open tasks and then completed tasks for better user experience. -->
   <% if !task.completed %>
-      <h3><%=link_to( task.title, show_path(task.id)) %></h3>
-      <%= form_for task, url: update_path(task.id), method: 'put'  do |f| %>
-          <!-- Hidden fields are included to make sure that the orignal values of title
-          and description are not overwritten when the completed status is changed. -->
-          <%= hidden_field(:task, :title, :value => task.title) %>
-          <%= hidden_field(:task, :description, :value => task.description) %>
-
-          <label>Open</label>
-          <%= f.radio_button :completed, false %>
-
-          <label>Complete</label>
-          <%= f.radio_button :completed, true %>
-
-          <%= f.submit "Save" %>
-      <% end %>
-        <p><%= button_to "Delete Task", delete_path(task.id), method: :delete, data: {confirm:"Are you Sure?" }  %></p>
-    <% end %>
+      <section>
+        <h3><%=link_to( task.title, show_path(task.id)) %></h3>
+          <div class="buttons"><%= button_to "Task Complete", complete_path(task.id), method: :put, data: {confirm:"Mark this task complete?"}  %></div>
+          <div class="buttons"><%= button_to "Delete Task", delete_path(task.id), method: :delete, data: {confirm:"Delete this task?"}  %></div>
+      </section>
+  <% end %>
 
 <% end %>
 
@@ -27,6 +16,8 @@
 <h3>Closed Tasks</h3>
 <% @tasks.each do |task| %>
   <% if task.completed %>
-    <h3><%=link_to( task.title, show_path(task.id)) %></h3>
+    <section>
+      <h3><%=link_to( task.title, show_path(task.id)) %></h3>
+    </section>
     <% end %>
 <% end %>
