@@ -2,7 +2,7 @@
 <p>Need to: <%= @mytask.description %></p>
   <% if !@mytask.completed %>
     <p>Status: "Open"</p>
-    <%= button_to "Edit Task", edit_path(@mytask.id), method: :get %>
+    <p><%= button_to "Edit Task", edit_path(@mytask.id), method: :get %></p>
     <% else %>
   <p>Status: "Complete!" </p>
   <p>Completed at: <%= @mytask.completed_at %></p>

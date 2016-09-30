@@ -2,7 +2,19 @@
 <% @tasks.each do |task| %>
   <% if !task.completed %>
     <h3><%=link_to( task.title, show_path(task.id)) %></h3>
+    <%= form_for task, url: update_path(task.id), method: 'put'  do |f| %>
+        <%= hidden_field(:task, :title, :value => task.title) %>
+        <%= hidden_field(:task, :description, :value => task.description) %>
+      
+        <label>Complete</label>
+        <%= f.radio_button :completed, true %>
+
+        <label>Open</label>
+        <%= f.radio_button :completed, false %>
+
+        <%= f.submit "Save" %>
     <% end %>
+  <% end %>
 <% end %>
 
 <br>
