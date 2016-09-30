@@ -35,6 +35,7 @@ class TasksController < ApplicationController
     end
 
     @mytask.save
+    redirect_to action: 'index'
   end
 
   def destroy
