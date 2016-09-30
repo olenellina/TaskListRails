@@ -17,6 +17,9 @@ class TasksController < ApplicationController
     @mytask.description = params[:task][:description]
     @mytask.completed = false
     @mytask.save
+
+    # For better user experience, users are redirected home after a task is updated
+    redirect_to action: 'index'
   end
 
   def edit
@@ -42,6 +45,9 @@ class TasksController < ApplicationController
 
   def destroy
     Task.find(params[:id]).destroy
+
+    # For better user experience, users are redirected home after a task is updated
+    redirect_to action: 'index'
   end
 
 end

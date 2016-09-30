@@ -17,6 +17,7 @@
 
           <%= f.submit "Save" %>
       <% end %>
+        <p><%= button_to "Delete Task", delete_path(task.id), method: :delete, data: {confirm:"Are you Sure?" }  %></p>
     <% end %>
 
 <% end %>
