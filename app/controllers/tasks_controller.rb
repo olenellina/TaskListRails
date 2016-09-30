@@ -48,6 +48,8 @@ class TasksController < ApplicationController
     redirect_to action: 'index'
   end
 
+  # When called, complete marks that tasks' complete status as true and sets the
+  # completed_at value to the current date/time. 
   def complete
     @mytask = Task.find(params[:id])
     @mytask.completed = true
