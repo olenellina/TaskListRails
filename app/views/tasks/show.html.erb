@@ -1,11 +1,11 @@
 <h3>Task <%= @mytask.id %>: <%= @mytask.title %></h3>
 <p>Need to: <%= @mytask.description %></p>
   <% if !@mytask.completed %>
-    <p>Status: "Open"</p>
-    <p><%= button_to "Edit Task", edit_path(@mytask.id), method: :get %></p>
+      <p>Status: "Open"</p>
+      <p><%= button_to "Edit Task", edit_path(@mytask.id), method: :get%></p>
     <% else %>
-  <p>Status: "Complete!" </p>
-  <p>Completed at: <%= @mytask.completed_at %></p>
+      <p>Status: "Complete!" </p>
+      <p>Completed at: <%= @mytask.completed_at %></p>
   <% end %>
 
-  <p><%= button_to "Delete Task", delete_path(@mytask.id), method: :delete, data: {confirm:"Are you Sure?" } %></p>
+  <p><%= button_to "Delete Task", delete_path(@mytask.id), method: :delete, data: {confirm:"Are you Sure?" }  %></p>
