@@ -3,10 +3,12 @@
   <!-- Completed tasks should not be edited. The only option is to delete a completed task. -->
   <% if !@mytask.completed %>
       <p>Status: "Open"</p>
-      <p><%= button_to "Edit Task", edit_path(@mytask.id), method: :get%></p>
+      <section>
+        <div class="buttons"><%= button_to "Edit Task", edit_path(@mytask.id), method: :get%></div>
+        <div class="buttons"><%= button_to "Delete Task", delete_path(@mytask.id), method: :delete, data: {confirm:"Are you Sure?" }  %></div>
+      </section>
     <% else %>
       <p>Status: "Complete!" </p>
       <p>Completed at: <%= @mytask.completed_at %></p>
+      <p><%= button_to "Delete Task", delete_path(@mytask.id), method: :delete, data: {confirm:"Are you Sure?" }  %></p>
   <% end %>
-
-  <p><%= button_to "Delete Task", delete_path(@mytask.id), method: :delete, data: {confirm:"Are you Sure?" }  %></p>
