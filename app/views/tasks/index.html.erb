@@ -1,8 +1,11 @@
 <h3>Open Tasks</h3>
 <% @tasks.each do |task| %>
+  <!-- Dividing view to show open tasks and then completed tasks for better user experience. -->
   <% if !task.completed %>
       <h3><%=link_to( task.title, show_path(task.id)) %></h3>
       <%= form_for task, url: update_path(task.id), method: 'put'  do |f| %>
+          <!-- Hidden fields are included to make sure that the orignal values of title
+          and description are not overwritten when the completed status is changed. -->
           <%= hidden_field(:task, :title, :value => task.title) %>
           <%= hidden_field(:task, :description, :value => task.description) %>
 

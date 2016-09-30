@@ -1,5 +1,6 @@
 <h3>Task <%= @mytask.id %>: <%= @mytask.title %></h3>
 <p>Need to: <%= @mytask.description %></p>
+  <!-- Completed tasks should not be edited. The only option is to delete a completed task. -->
   <% if !@mytask.completed %>
       <p>Status: "Open"</p>
       <p><%= button_to "Edit Task", edit_path(@mytask.id), method: :get%></p>

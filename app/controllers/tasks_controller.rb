@@ -12,7 +12,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    @params = params
     @mytask = Task.new
     @mytask.title = params[:task][:title]
     @mytask.description = params[:task][:description]
@@ -30,11 +29,14 @@ class TasksController < ApplicationController
     @mytask.description = params[:task][:description]
     @mytask.completed = params[:task][:completed]
 
+    # If a task is marked as completed, completed_at is updated to the current Date & Time
     if @mytask.completed == true
       @mytask.completed_at = DateTime.now
     end
 
     @mytask.save
+
+    # For better user experience, users are redirected home after a task is updated
     redirect_to action: 'index'
   end
 
