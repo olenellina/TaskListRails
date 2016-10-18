@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+
+  # before_action :find_task only: [:show, :edit, :update, :destroy, :complete]
+
   def index
     @tasks = Task.all
   end
@@ -49,7 +52,7 @@ class TasksController < ApplicationController
   end
 
   # When called, complete marks that tasks' complete status as true and sets the
-  # completed_at value to the current date/time. 
+  # completed_at value to the current date/time.
   def complete
     @mytask = Task.find(params[:id])
     @mytask.completed = true
@@ -58,5 +61,26 @@ class TasksController < ApplicationController
 
     redirect_to action: 'index'
   end
+
+  # private
+
+  # For security, pulling params and only allowing the use of specified keys
+  # Needs to be updated for this project (pulled from circulum)
+  #
+  # def student_params
+  #   params.require(:student).permit(:first_name, :last_name)
+  # end
+  # Then (changes to update method):
+  #     def update
+  #       if @student.update[student_params]
+  #         redirect_to students_path
+  #       else
+  #         render: edit
+  #       end
+  #     end
+
+  # def find_task
+  #   @mytask = Task.find(params[:id])
+  # end
 
 end

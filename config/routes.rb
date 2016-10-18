@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   root 'tasks#index'
 
   get 'tasks/index', as: 'index'
@@ -16,6 +20,9 @@ Rails.application.routes.draw do
   put 'tasks/:id/complete' => 'tasks#complete', as: 'complete'
 
   delete 'tasks/:id/destroy' => 'tasks#destroy', as: 'delete'
+
+  # Tells oAuth where to send user after login
+  get "/auth/:provider/callback", to: "sessions#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
