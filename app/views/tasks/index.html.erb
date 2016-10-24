@@ -3,9 +3,9 @@
   <!-- Dividing view to show open tasks and then completed tasks for better user experience. -->
   <% if !task.completed %>
       <section>
-        <h3><%=link_to( task.title, show_path(task.id)) %></h3>
-          <div class="buttons"><%= button_to "Task Complete", complete_path(task.id), method: :put, data: {confirm:"Mark this task complete?"}  %></div>
-          <div class="buttons"><%= button_to "Delete Task", delete_path(task.id), method: :delete, data: {confirm:"Delete this task?"}  %></div>
+        <h3><%=link_to( task.title, tasks_show_path(task.id)) %></h3>
+          <div class="buttons"><%= button_to "Task Complete", tasks_complete_path(task.id), method: :put, data: {confirm:"Mark this task complete?"}  %></div>
+          <div class="buttons"><%= button_to "Delete Task", tasks_delete_path(task.id), method: :delete, data: {confirm:"Delete this task?"}  %></div>
       </section>
   <% end %>
 
@@ -17,7 +17,7 @@
 <% @tasks.each do |task| %>
   <% if task.completed %>
     <section>
-      <h3><%=link_to( task.title, show_path(task.id)) %></h3>
+      <h3><%=link_to( task.title, tasks_show_path(task.id)) %></h3>
     </section>
     <% end %>
 <% end %>

@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
 
     flash[:notice] = "Successfully Logged In"
-    redirect_to users_index_path
+    redirect_to tasks_index_path
 
   end
 
