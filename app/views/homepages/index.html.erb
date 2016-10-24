@@ -1,5 +1,7 @@
-    <%= image_tag("to-do-large.jpg", :alt => "to do list") %>
-<h1>Welcome</h1>
-<% if session[:user_id] == nil %>
-  <p><%= link_to "Please Login", "/auth/github" %></p>
-<% end %>
+<div id="main-landing">
+  <%= image_tag("to-do-large.jpg", :alt => "to do list") %>
+  <h1>Welcome</h1>
+  <% if session[:user_id] == nil %>
+    <p><%= link_to "Please Login", "/auth/github" %></p>
+  <% end %>
+</div>

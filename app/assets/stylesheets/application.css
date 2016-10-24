@@ -2,6 +2,10 @@
   padding-left: 2%;
 }
 
+#main-landing {
+  text-align: center;
+}
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.5em;
