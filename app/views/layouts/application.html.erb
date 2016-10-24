@@ -15,8 +15,8 @@
             <li><%= link_to "Login", "/auth/github" %></li>
             <% else %>
             <li><%= link_to "Logout", session_delete_path(session[:user_id]), method: :delete, data: {confirm:"End your session?"} %></li>
-            <li><%= link_to "Home", "index_path" %></li>
-            <li><%=link_to( "New", new_path) %></li>
+            <li><%= link_to "Home", users_index_path %></li>
+            <li><%=link_to( "New", tasks_new_path) %></li>
           <% end %>
         </ul>
       </nav>

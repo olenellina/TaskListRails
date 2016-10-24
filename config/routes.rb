@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'tasks#index'
+  root 'homepages#index'
 
   get 'users/index' => 'users#index', as: 'users_index'
 
@@ -15,27 +15,27 @@ Rails.application.routes.draw do
 
   get 'users/destroy'
 
-  get 'homepages/index'
+  get 'homepages/index', as: 'index'
 
   get 'sessions/create'
 
-  get 'sessions/destroy'
+  delete 'sessions/:id/destroy' => 'sessions#destroy', as: 'session_delete'
 
-  get 'tasks/index', as: 'index'
+  get 'tasks/index' => 'tasks#index', as: 'tasks_index'
 
-  post 'tasks/create' => 'tasks#create', as: 'create'
+  post 'tasks/create' => 'tasks#create', as: 'tasks_create'
 
-  get 'tasks/show/:id' => 'tasks#show', as: 'show'
+  get 'tasks/show/:id' => 'tasks#show', as: 'tasks_show'
 
-  get 'tasks/new' => 'tasks#new', as: 'new'
+  get 'tasks/new' => 'tasks#new', as: 'tasks_new'
 
-  get 'tasks/:id/edit' => 'tasks#edit', as: 'edit'
+  get 'tasks/:id/edit' => 'tasks#edit', as: 'tasks_edit'
 
-  put 'tasks/:id/update' => 'tasks#update', as: 'update'
+  put 'tasks/:id/update' => 'tasks#update', as: 'tasks_update'
 
-  put 'tasks/:id/complete' => 'tasks#complete', as: 'complete'
+  put 'tasks/:id/complete' => 'tasks#complete', as: 'tasks_complete'
 
-  delete 'tasks/:id/destroy' => 'tasks#destroy', as: 'delete'
+  delete 'tasks/:id/destroy' => 'tasks#destroy', as: 'tasks_delete'
 
   # Tells oAuth where to send user after login
   get "/auth/:provider/callback", to: "sessions#create"

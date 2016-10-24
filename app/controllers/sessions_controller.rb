@@ -21,14 +21,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       flash[:notice] = "Successfully Logged In"
 
-      return redirect_to user_edit_path(@user.id)
+      return redirect_to users_edit_path(@user.id)
 
     end
 
     session[:user_id] = @user.id
 
     flash[:notice] = "Successfully Logged In"
-    redirect_to user_index_path
+    redirect_to users_index_path
 
   end
 
