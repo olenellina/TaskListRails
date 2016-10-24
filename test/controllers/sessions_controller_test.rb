@@ -18,6 +18,9 @@ class SessionsControllerTest < ActionController::TestCase
   test "A 2nd User shouldn't be created if a User logs in twice" do
     assert_difference('User.count', 1) do
       login_a_user
+      puts "----"
+      puts User.all
+      puts "----"
     end
     assert_no_difference('User.count') do
       login_a_user
