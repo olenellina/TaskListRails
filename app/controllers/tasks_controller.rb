@@ -62,25 +62,25 @@ class TasksController < ApplicationController
     redirect_to action: 'index'
   end
 
-  # private
-
-  # For security, pulling params and only allowing the use of specified keys
-  # Needs to be updated for this project (pulled from circulum)
-  #
-  # def student_params
-  #   params.require(:student).permit(:first_name, :last_name)
-  # end
-  # Then (changes to update method):
-  #     def update
-  #       if @student.update[student_params]
-  #         redirect_to students_path
-  #       else
-  #         render: edit
-  #       end
-  #     end
-
-  # def find_task
-  #   @mytask = Task.find(params[:id])
-  # end
-
 end
+
+# private
+
+# For security, pulling params and only allowing the use of specified keys
+# Needs to be updated for this project (pulled from circulum)
+#
+# def student_params
+#   params.require(:student).permit(:first_name, :last_name)
+# end
+# Then (changes to update method):
+#     def update
+#       if @student.update[student_params]
+#         redirect_to students_path
+#       else
+#         render: edit
+#       end
+#     end
+
+# def find_task
+#   @mytask = Task.find(params[:id])
+# end

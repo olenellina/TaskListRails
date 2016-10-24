@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
+  root 'tasks#index'
+
+  get 'users/index' => 'users#index', as: 'users_index'
+
+  get 'users/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/:id/edit' => 'users#edit', as: 'users_edit'
+
+  patch 'users/:id/update' => 'users#update', as: 'users_update'
+
+  get 'users/destroy'
+
+  get 'homepages/index'
+
   get 'sessions/create'
 
   get 'sessions/destroy'
-
-  root 'tasks#index'
 
   get 'tasks/index', as: 'index'
 
