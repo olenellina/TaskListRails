@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  validates :username,
+            presence: true,
+            uniqueness: true
+
+  validates :email,
+            presence: true,
+            uniqueness: true
 
   def self.build_from_github(auth_hash)
     user       = User.new
