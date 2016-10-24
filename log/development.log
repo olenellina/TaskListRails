@@ -18998,3 +18998,66 @@ Started GET "/" for ::1 at 2016-10-24 13:04:34 -0700
 Processing by HomepagesController#index as HTML
   Rendered homepages/index.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/" for ::1 at 2016-10-24 13:08:41 -0700
+Processing by HomepagesController#index as HTML
+  Rendered homepages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-7bc382a083e384d20db49937e08e47cbe88caa121d7f1ad35bdcad519be784df.css?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/homepages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/assets/to-do.jpg" for ::1 at 2016-10-24 13:08:41 -0700
+
+
+Started GET "/auth/github" for ::1 at 2016-10-24 13:08:43 -0700
+
+
+Started GET "/auth/github" for ::1 at 2016-10-24 13:08:43 -0700
+
+
+Started GET "/auth/github/callback?code=155f73de4462edd211c4&state=2a97123eae8e75c898e63818ee77cf74339ef559f297418f" for ::1 at 2016-10-24 13:08:51 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"155f73de4462edd211c4", "state"=>"2a97123eae8e75c898e63818ee77cf74339ef559f297418f", "provider"=>"github"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? AND "users"."provider" = ? LIMIT 1  [["uid", "22893738"], ["provider", "github"]]
+Redirected to http://localhost:3000/users/index
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/index" for ::1 at 2016-10-24 13:08:53 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/index" for ::1 at 2016-10-24 13:09:27 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.0ms)

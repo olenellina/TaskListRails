@@ -16,13 +16,6 @@ class SessionsController < ApplicationController
       # The method to create the new User (build_from_github) is defined in the
       # User model.
       @user = User.build_from_github(auth_hash)
-
-      # Save the User ID in the session (**not the :uid from GitHub**)
-      session[:user_id] = @user.id
-      flash[:notice] = "Successfully Logged In"
-
-      return redirect_to users_edit_path(@user.id)
-
     end
 
     session[:user_id] = @user.id
