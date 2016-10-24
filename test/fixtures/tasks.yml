@@ -12,15 +12,15 @@ two:
   completed: false
   completed_at: 2016-09-28 14:43:09
 
-adas_task:
-  #Tasks will belong to a user
-  title: "Write the 1st code"
-  description: "Fortran"
-  user: :ada
-  completed_at: 2016-09-28 14:43:09
-
-  baggages_task:
-    #Tasks will belong to a user
-    title: "Build the machine"
-    description: "Machine"
-    user: :babbage
+# adas_task:
+#   #Tasks will belong to a user
+#   title: "Write the 1st code"
+#   description: "Fortran"
+#   user: :ada
+#   completed_at: 2016-09-28 14:43:09
+#
+#   baggages_task:
+#     #Tasks will belong to a user
+#     title: "Build the machine"
+#     description: "Machine"
+#     user: :babbage
