@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
+
 <div id="main-landing">
   <%= image_tag("to-do-large.jpg", :alt => "to do list") %>
   <h1>Welcome</h1>

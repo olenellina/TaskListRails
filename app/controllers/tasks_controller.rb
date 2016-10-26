@@ -1,14 +1,13 @@
 class TasksController < ApplicationController
 
-  # before_action :find_task only: [:show, :edit, :update, :destroy, :complete]
+  before_action :find_user
+  before_action :find_task, only: [:show, :edit, :update, :complete]
 
   def index
-    @user = User.find_by(id: session[:user_id].to_i)
     @tasks = Task.where("user_id = ?", @user.id).to_a
   end
 
   def show
-    @mytask = Task.find(params[:id].to_i)
   end
 
   def new
@@ -16,7 +15,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: session[:user_id].to_i)
     @mytask = Task.new
     @mytask.user_id = @user.id.to_i
     @mytask.title = params[:task][:title]
@@ -25,15 +23,13 @@ class TasksController < ApplicationController
     @mytask.save
 
     # For better user experience, users are redirected home after action
-    redirect_to action: 'index'
+    return redirect_to action: 'index'
   end
 
   def edit
-    @mytask = Task.find(params[:id])
   end
 
   def update
-    @mytask = Task.find(params[:id])
     @mytask.title = params[:task][:title]
     @mytask.description = params[:task][:description]
     @mytask.completed = params[:task][:completed]
@@ -57,7 +53,6 @@ class TasksController < ApplicationController
   # When called, complete marks that tasks' complete status as true and sets the
   # completed_at value to the current date/time.
   def complete
-    @mytask = Task.find(params[:id])
     @mytask.completed = true
     @mytask.completed_at = DateTime.now
     @mytask.save
@@ -67,23 +62,23 @@ class TasksController < ApplicationController
 
 end
 
-# private
+private
 
-# For security, pulling params and only allowing the use of specified keys
-# Needs to be updated for this project (pulled from circulum)
-#
-# def student_params
-#   params.require(:student).permit(:first_name, :last_name)
-# end
-# Then (changes to update method):
-#     def update
-#       if @student.update[student_params]
-#         redirect_to students_path
-#       else
-#         render: edit
-#       end
-#     end
+def find_task
+  @mytask = Task.find(params[:id])
 
-# def find_task
-#   @mytask = Task.find(params[:id])
-# end
+  if @mytask.user_id != @user.id
+    flash[:notice] = "Record not found in this user's account"
+    return redirect_to tasks_index_path
+  end
+
+end
+
+def find_user
+  if session[:user_id] == nil
+    flash[:notice] = "You must be logged in to complete that action"
+    return redirect_to root_path
+  else
+    @user = User.find_by(id: session[:user_id].to_i)
+  end
+end

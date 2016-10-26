@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
+
 <h3>Open Tasks</h3>
 <% @tasks.each do |task| %>
   <!-- Dividing view to show open tasks and then completed tasks for better user experience. -->
