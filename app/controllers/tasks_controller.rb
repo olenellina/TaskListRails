@@ -3,7 +3,8 @@ class TasksController < ApplicationController
   # before_action :find_task only: [:show, :edit, :update, :destroy, :complete]
 
   def index
-    @tasks = Task.all
+    @user = User.find_by(id: session[:user_id].to_i)
+    @tasks = Task.where("user_id = ?", @user.id).to_a
   end
 
   def show
@@ -15,7 +16,9 @@ class TasksController < ApplicationController
   end
 
   def create
+    @user = User.find_by(id: session[:user_id].to_i)
     @mytask = Task.new
+    @mytask.user_id = @user.id.to_i
     @mytask.title = params[:task][:title]
     @mytask.description = params[:task][:description]
     @mytask.completed = false
