@@ -1,14 +1,3 @@
-### Reflection
-What went well:
-I really enjoyed this project and feel like rails is making sense to me. The requirements were described well but there were also a few opportunities to make my own design decisions and I enjoyed that (for example, deciding that once completed, a record should not be updated, only deleted). 
-
-What are you still working on understanding better:
-I'm still wanting to develop a better understanding of the rails project structure; there are a lot of files/folders that we didn't need to work with for this project. I’m almost thinking that I’ll spend some time playing around with Sinatra to see if it enables me to learn more about starting from scratch. I tried to get a feature working where you could be looking at the show page for a particular task and have a "previous" and "next" task button that could scroll through the tasks in your database. I was able to get it working using some online resources but ended up getting rid of that code because it was dependent on the database records being continuous. Lastly, I'd really like build in tests like we have been using for stand-alone Ruby projects. 
-
-What did your chair pair do differently:
-One of my chair pairs implemented the optional "partials" for her buttons and I'd love to try that!
-
-
 # Task List Rails ✅
 We are going to build a Task List in Rails. This web application will enable us to keep track of list of tasks with the functionality to add, edit and remove tasks from a list.
 
